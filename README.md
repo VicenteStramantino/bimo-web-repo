@@ -20,13 +20,9 @@
     <ul>
         <li>🟦 <strong>Java Spring Boot:</strong> Framework utilizado para o desenvolvimento da API.</li>
         <li>🛠️ <strong>Maven:</strong> Ferramenta de automação de build e gerenciamento de dependências.</li>
-        <li>💾 <strong>Banco de Dados:</strong> Postgres (ou outro banco de sua escolha).</li>
+        <li>💾 <strong>Banco de Dados:</strong> Postgres.</li>
         <li>🌐 <strong>REST API:</strong> Arquitetura utilizada para a comunicação entre frontend e backend.</li>
     </ul>
-    <h2>Licença</h2>
-    <p>
-        Este projeto é licenciado sob a licença MIT - veja o arquivo <code>LICENSE</code> para mais detalhes.
-    </p>
     <h2>Criadores</h2>
     <ul>
         <li><strong>Vicente de Souza Stramantino</strong> - <a href="https://github.com/VicenteStramantino">GitHub</a></li>
