@@ -7,13 +7,18 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/apibimo/curriculos")
@@ -51,5 +56,22 @@ public class CurriculoController {
             curriculoService.deletar(id);
             return ResponseEntity.status(HttpStatus.OK).body("Curriculo excluido com sucesso");
         }
+    }
+
+
+    @PostMapping("/inserir")
+    @Operation(summary = "Insere curriculo")
+    @Schema(description = "Metodo que insere curriculo",example = "inserir curriculo do jose")
+    public ResponseEntity<?> inserir(@Valid @RequestBody Curriculo curriculo, BindingResult erros){
+        if(erros.hasErrors()){
+            Map<String, String> errosTotais = new HashMap<>();
+            for (FieldError erro : erros.getFieldErrors()) {
+                // Coloque o nome do campo e a mensagem de erro no mapa
+                errosTotais.put(erro.getField(), erro.getDefaultMessage());
+            }
+            return new ResponseEntity<>(errosTotais, HttpStatus.BAD_REQUEST);
+        }
+        curriculoService.inserir(curriculo);
+        return new ResponseEntity<>(" inserido com sucesso.", HttpStatus.OK);
     }
 }
