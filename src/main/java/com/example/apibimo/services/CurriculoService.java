@@ -24,7 +24,7 @@ public class CurriculoService {
         return curriculoRepository.findAll();
     }
 
-    public Optional<Curriculo> buscarPorID(int id){
+    public Optional<Curriculo> buscarPorID(long id){
         return curriculoRepository.findById(id);
     }
     public ResponseEntity<String> inserir(@RequestBody Curriculo curriculo){
@@ -45,7 +45,7 @@ public class CurriculoService {
         }
     }
 
-    public ResponseEntity<String> deletar(int id){
+    public ResponseEntity<String> deletar(long id){
         Optional<Curriculo> curriculoOptional = curriculoRepository.findById(id);
         if(curriculoOptional.isPresent()){
             curriculoRepository.deleteById(id);

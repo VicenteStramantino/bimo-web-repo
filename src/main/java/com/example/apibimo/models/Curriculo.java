@@ -14,7 +14,7 @@ public class Curriculo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int sId;
+    private long sId;
 
 
     @Column(name = "cLink_Linkedin")
@@ -55,7 +55,7 @@ public class Curriculo {
     @Size(min = 4, message = "O campo deve conter pelo menos 4 caracteres.")
     private String cProjetos;
 
-    public int getsId() {
+    public long getsId() {
         return sId;
     }
 

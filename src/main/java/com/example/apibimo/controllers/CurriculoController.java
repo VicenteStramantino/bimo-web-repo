@@ -8,10 +8,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Validator;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,4 +40,16 @@ public class CurriculoController {
         return curriculoService.buscarTodos();
     }
 
+
+    @DeleteMapping("/excluir/{id}")
+    @Schema(description = "Metodo que exclui curriculos",example = "Excluir curriculo 1")
+    public ResponseEntity<String> excluir(@PathVariable long id){
+        if(id < 0){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro, o id deve ser maior que zero");
+        }
+        else{
+            curriculoService.deletar(id);
+            return ResponseEntity.status(HttpStatus.OK).body("Curriculo excluido com sucesso");
+        }
+    }
 }
