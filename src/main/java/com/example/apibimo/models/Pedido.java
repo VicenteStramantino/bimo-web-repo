@@ -1,44 +1,123 @@
 package com.example.apibimo.models;
 
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "Pedido")
-@Schema(description = "Esta classe é responsavel por tratar informações de um pedido")
+@Table(name = "pedido")
+@Schema(description = "Classe responsável por tratar informações de um pedido")
 public class Pedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int sId;
-
+    @Schema(description = "ID único do pedido", example = "1")
+    private int sid;
 
     @Column(name = "fvalortotal")
-    @Schema(description = "Atributo responsavel por trabalhar com o valor total do pedido")
-    @Size(min = 3, message = "O preço total deve conter pelo menos 3 caractres.")
-    @NotNull
+    @Schema(description = "Valor total do pedido", example = "150.75")
+    @Min(value = 0, message = "O valor total deve ser positivo.")
+    @NotNull(message = "O valor total é obrigatório.")
     private double fValorTotal;
 
 
-    @Column(name = "iquantidade")
-    @Schema(description = "Atributo responsavel por guardar e exibir a quantidade de produtos no pedido")
-    @Size(min = 1, message = "A quantidade deve conter pelo menos 1 caracter.")
-    @NotNull
-    private int iQuantidade;
-
-
-    @Schema(description = "Atributo responsavel por guardar a data em que o pedido esta sendo realizado.")
-    @Size(min = 10, message = "O campo data deve conter pelo menos 10 caractres.")
-    @NotNull
+    @Column(name = "ddata")
+    @Schema(description = "Data em que o pedido está sendo realizado", example = "2024-09-17")
+    @Size(min = 10, max = 10, message = "A data deve seguir o formato YYYY-MM-DD.")
+    @NotNull(message = "A data é obrigatória.")
     private String dData;
 
-
-    @Schema(description = "Atributo responsavel por trabalhar, ou seja, se o pedido ja foi realizado ou nao")
-    @Size(min = 4, message = "O campo status deve conter pelo menos 4 caractres.")
-    @NotNull
+    @Column(name = "cstatus")
+    @Schema(description = "Status do pedido (realizado ou não)", example = "PENDENTE")
+    @Size(min = 4, message = "O status deve conter pelo menos 4 caracteres.")
+    @NotNull(message = "O status é obrigatório.")
     private String cStatus;
 
+    @Column(name = "ctipopagamento")
+    @Schema(description = "Tipo de pagamento utilizado no pedido", example = "CARTÃO")
+    @Size(min = 3, message = "O tipo de pagamento deve conter pelo menos 3 caracteres.")
+    @NotNull(message = "O tipo de pagamento é obrigatório.")
+    private String cTipoPagamento;
+
+    @Column(name = "transaction_made")
+    @Schema(description = "Indica se a transação foi realizada", example = "true")
+    private boolean transaction_made;
+
+    @Column(name = "idusuario")
+    @Schema(description = "Atributo FK da tabela de usuario", example ="1")
+    private int iIdUsuario;
+
+    // Construtor com parâmetros
+        public Pedido(double fValorTotal, String dData, String cStatus, String cTipoPagamento, int idusuario ,boolean transaction_made) {
+            this.fValorTotal = fValorTotal;
+            this.dData = dData;
+            this.cStatus = cStatus;
+            this.cTipoPagamento = cTipoPagamento;
+            this.iIdUsuario = idusuario;
+            this.transaction_made = transaction_made;
+        }
+
+    // Construtor padrão
+    public Pedido() {
+    }
+
+    // Getters e Setters
+    public int getSid() {
+        return sid;
+    }
+
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
+
+    public double getfValorTotal() {
+        return fValorTotal;
+    }
+
+    public void setfValorTotal(double fValorTotal) {
+        this.fValorTotal = fValorTotal;
+    }
+
+
+    public String getdData() {
+        return dData;
+    }
+
+    public void setdData(String dData) {
+        this.dData = dData;
+    }
+
+    public String getcStatus() {
+        return cStatus;
+    }
+
+    public void setcStatus(String cStatus) {
+        this.cStatus = cStatus;
+    }
+
+    public String getcTipoPagamento() {
+        return cTipoPagamento;
+    }
+
+    public void setcTipoPagamento(String cTipoPagamento) {
+        this.cTipoPagamento = cTipoPagamento;
+    }
+
+    public boolean isTransaction_made() {
+        return transaction_made;
+    }
+
+    public int getiIdUsuario() {
+        return iIdUsuario;
+    }
+
+    public void setiIdUsuario(int iIdUsuario) {
+        this.iIdUsuario = iIdUsuario;
+    }
+
+    public void setTransaction_made(boolean transaction_made) {
+        this.transaction_made = transaction_made;
+    }
 }

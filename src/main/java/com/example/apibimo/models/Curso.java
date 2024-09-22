@@ -1,72 +1,139 @@
 package com.example.apibimo.models;
 
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "Curso")
-@Schema(description = "Classe usada para representar um curso.")
+@Table(name = "curso")
+@Schema(description = "Classe que representa um curso com detalhes como valor, descrição e certificação.")
 public class Curso {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int sId;
-
+    @Schema(description = "Identificador único do curso.", example = "1")
+    private int sid;
 
     @Column(name = "fvalor")
-    @Schema(description = "Atributo utilizado para armazenar o valor do curso.")
+    @Schema(description = "Valor do curso em reais.", example = "199.99")
     @NotNull
-    @Size(min = 3, message = "O valor do curso deve conter pelo menos 3 caracteres.")
     private double fValor;
 
-
     @Column(name = "cdescricao")
+    @Schema(description = "Descrição do curso.", example = "Curso de Programação em Java.")
     @NotNull
-    @Schema(description = "Atributo utilizado para armazenar a descrição do curso.")
-    @Size(min = 3, message = "A descrição do curso deve conter pelo menos 3 caracteres.")
     private String cDescricao;
 
-
     @Column(name = "ccertificacao")
+    @Schema(description = "Link para a certificação do curso.", example = "http://example.com/certificacao")
     @NotNull
-    @Schema(description = "Atributo que guarda link onde contenha a certificação do curso.")
-    @Size(min = 3, message = "Este campo deve conter pelo menos 3 caracteres.")
     private String cCertificacao;
 
-
-    @Column(name = "ccategoria")
+    @Column(name = "idcategoria")
+    @Schema(description = "Categoria do curso. Exemplo: 1 para Tecnologia, 2 para Negócios.", example = "1")
     @NotNull
-    @Schema(description = "Atributo que guarda a categoria do curso.")
-    @Size(min = 3, message = "A categoria deve conter pelo menos 3 caracteres.")
-    private String cCategoria;
-
+    private int iCategoria;
 
     @Column(name = "inumeroinscricao")
+    @Schema(description = "Número de pessoas inscritas no curso.", example = "50")
     @NotNull
-    @Schema(description = "Atributo onde fica armazenado a quantidade de pessoas inscritas no curso.")
-    @Size(min = 1, message = "O numeros de inscritos deve conter pelo menos 1 caracter")
     private int iNumeroInscricao;
 
-
     @Column(name = "cnome")
+    @Schema(description = "Nome do curso.", example = "Desenvolvimento Web com Spring Boot")
     @NotNull
-    @Schema(description = "Atributo que guarda o nome do curso.")
-    @Size(min = 4, message = "O nome do curso deve conter pelo menos 4 caracteres.")
     private String cNome;
 
-
     @Column(name = "cduracao")
+    @Schema(description = "Duração do curso em horas.", example = "40")
     @NotNull
-    @Schema(description = "Atributo que armazena a duração que o curso tem.")
-    @Size(min = 5, message = "O campo de duração do curso, deve conter pelo menos 5 caracteres.")
     private String cDuracao;
 
+    @Column(name = "transaction_made")
+    @Schema(description = "Indica se a transação foi realizada.", example = "true")
+    private boolean transaction_made;
 
-    @Column(name = "idusuario")
-    @Schema(description = "Atributo que indica qual usuario esta oferecendo aquele curso.")
-    private int idUsuario;
+    public Curso(int sid, double fValor, String cDescricao, String cCertificacao, int iCategoria, int iNumeroInscricao, String cNome, String cDuracao, boolean transaction_made) {
+        this.sid = sid;
+        this.fValor = fValor;
+        this.cDescricao = cDescricao;
+        this.cCertificacao = cCertificacao;
+        this.iNumeroInscricao = iNumeroInscricao;
+        this.cNome = cNome;
+        this.cDuracao = cDuracao;
+        this.transaction_made = transaction_made;
+        this.iCategoria = iCategoria;
+    }
+
+    public Curso() {
+    }
+
+    public int getSid() {
+        return sid;
+    }
+
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
+
+    public double getfValor() {
+        return fValor;
+    }
+
+    public void setfValor(double fValor) {
+        this.fValor = fValor;
+    }
+
+    public String getcDescricao() {
+        return cDescricao;
+    }
+
+    public void setcDescricao(String cDescricao) {
+        this.cDescricao = cDescricao;
+    }
+
+    public String getcCertificacao() {
+        return cCertificacao;
+    }
+
+    public void setcCertificacao(String cCertificacao) {
+        this.cCertificacao = cCertificacao;
+    }
+
+    public int getcCategoria() {
+        return iCategoria;
+    }
+
+    public void setcCategoria(int cCategoria) {
+        this.iCategoria = cCategoria;
+    }
+
+    public int getiNumeroInscricao() {
+        return iNumeroInscricao;
+    }
+
+    public void setiNumeroInscricao(int iNumeroInscricao) {
+        this.iNumeroInscricao = iNumeroInscricao;
+    }
+
+    public String getcNome() {
+        return cNome;
+    }
+
+    public void setcNome(String cNome) {
+        this.cNome = cNome;
+    }
+
+    public String getcDuracao() {
+        return cDuracao;
+    }
+
+    public void setcDuracao(String cDuracao) {
+        this.cDuracao = cDuracao;
+    }
+
+
+    public void setTransaction_made(boolean transaction_made) {
+        this.transaction_made = transaction_made;
+    }
 }
