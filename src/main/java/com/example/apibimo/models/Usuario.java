@@ -15,7 +15,7 @@ import org.springframework.cglib.core.Local;
 public class Usuario {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int sid;
 
     @NotNull
