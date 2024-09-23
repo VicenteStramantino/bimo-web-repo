@@ -81,6 +81,7 @@ public class Usuario {
         this.cidhash = cidhash;
         this.cespecialidadeprofissional = cespecialidadeprofissional;
         this.idplano = idplano;
+
     }
 
     // Construtor vazio

@@ -105,4 +105,5 @@ public class CursoController {
     public ResponseEntity<String> atualizarCurso(@PathVariable int id, @Valid @RequestBody Curso cursoAtualizado, BindingResult resultado) {
         return cursoService.atualizarCurso(id, cursoAtualizado);
     }
+
 }
