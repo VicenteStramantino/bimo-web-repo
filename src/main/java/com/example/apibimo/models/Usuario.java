@@ -23,7 +23,6 @@ public class Usuario {
     @Schema(description = "Nome do usuário")
     private String cnome;
 
-    @NotNull
     @Size(min = 3, message = "O sobrenome deve ter mais que 3 caracteres")
     @Schema(description = "Sobrenome utilizado pelo usuário")
     private String csobrenome;
@@ -46,7 +45,6 @@ public class Usuario {
     @Schema(description = "Caso o usuário seja uma empresa, este campo guarda o CNPJ da empresa")
     private String ccnpj;
 
-    @NotNull
     @Size(min = 11, message = "Um telefone deve ter no mínimo 11 caracteres.")
     @Schema(description = "Telefone de contato presente na conta do usuário")
     private String ctelefone;
@@ -56,7 +54,6 @@ public class Usuario {
     @Column(name = "ddatanascimento")
     private String ddatanascimento;
 
-    @NotNull
     @Size(min = 8, message = "O link deve ter no mínimo 8 caracteres")
     @Schema(description = "Link do LinkedIn do usuário.")
     private String clinklinkedin;
@@ -65,7 +62,6 @@ public class Usuario {
     @Schema(description = "Hash para login do usuário. Este hash vem do banco de dados.")
     private String cidhash;
 
-    @NotNull
     @Schema(description = "Especialidade profissional do usuário")
     private String cespecialidadeprofissional;
 
