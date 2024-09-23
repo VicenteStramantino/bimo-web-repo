@@ -28,10 +28,6 @@ public class Usuario {
     @Schema(description = "Sobrenome utilizado pelo usuário")
     private String csobrenome;
 
-    @NotNull
-    @Size(min = 4, message = "A senha deve conter pelo menos 4 caracteres.")
-    @Schema(description = "Senha utilizada pelo usuário para logar.")
-    private String csenha;
 
     @NotNull
     @Size(min = 11, message = "Um CPF deve conter no mínimo 11 caracteres.")
@@ -77,12 +73,14 @@ public class Usuario {
     @Schema(description = "Indica se uma transação foi feita")
     private boolean transaction_made;
 
+    @Column(name = "idplano")
+    @Schema(description = "Atributo que relaciona a tabela de usuário com a tabela de plano")
+    private int idplano;
+
     // Construtor com todos os atributos
-    public Usuario(int sid, String cnome, String csobrenome, String csenha, String ccpf, String cemail, String ccnpj, String ctelefone, String ddatanascimento, String clinklinkedin, String cidhash, String cespecialidadeprofissional, boolean transaction_made) {
-        this.sid = sid;
+    public Usuario(String cnome, String csobrenome, String ccpf, String cemail, String ccnpj, String ctelefone, String ddatanascimento, String clinklinkedin, String cidhash, String cespecialidadeprofissional, int idplano) {
         this.cnome = cnome;
         this.csobrenome = csobrenome;
-        this.csenha = csenha;
         this.ccpf = ccpf;
         this.cemail = cemail;
         this.ccnpj = ccnpj;
@@ -91,12 +89,14 @@ public class Usuario {
         this.clinklinkedin = clinklinkedin;
         this.cidhash = cidhash;
         this.cespecialidadeprofissional = cespecialidadeprofissional;
-        this.transaction_made = transaction_made;
+        this.idplano = idplano;
     }
 
     // Construtor vazio
     public Usuario() {
     }
+
+
 
     // Getters e Setters
     public int getSid() {
@@ -123,13 +123,6 @@ public class Usuario {
         this.csobrenome = csobrenome;
     }
 
-    public String getCsenha() {
-        return csenha;
-    }
-
-    public void setCsenha(String csenha) {
-        this.csenha = csenha;
-    }
 
     public String getCcpf() {
         return ccpf;
@@ -203,13 +196,20 @@ public class Usuario {
         this.transaction_made = transaction_made;
     }
 
+    public int getIdplano() {
+        return idplano;
+    }
+
+    public void setIdplano(int idplano) {
+        this.idplano = idplano;
+    }
+
     @Override
     public String toString() {
         return "{" +
                 "sid=" + sid +
                 ", cnome='" + cnome + '\'' +
                 ", csobrenome='" + csobrenome + '\'' +
-                ", csenha='" + csenha + '\'' +
                 ", ccpf='" + ccpf + '\'' +
                 ", cemail='" + cemail + '\'' +
                 ", ccnpj='" + ccnpj + '\'' +

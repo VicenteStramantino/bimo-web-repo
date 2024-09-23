@@ -52,7 +52,6 @@ public class UsuarioService {
             Usuario usuario = usuarioExistente.get();
             usuario.setCnome(usuarioAtualizado.getCnome());
             usuario.setCsobrenome(usuarioAtualizado.getCsobrenome());
-            usuario.setCsenha(usuarioAtualizado.getCsenha());
             usuario.setCcpf(usuarioAtualizado.getCcpf());
             usuario.setCemail(usuarioAtualizado.getCemail());
             usuario.setCcnpj(usuarioAtualizado.getCcnpj());
