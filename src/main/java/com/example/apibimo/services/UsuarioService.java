@@ -60,7 +60,6 @@ public class UsuarioService {
             usuario.setClinklinkedin(usuarioAtualizado.getClinklinkedin());
             usuario.setCidhash(usuarioAtualizado.getCidhash());
             usuario.setCespecialidadeprofissional(usuarioAtualizado.getCespecialidadeprofissional());
-            usuario.setTransaction_made(usuarioAtualizado.isTransaction_made());
             usuarioRepository.save(usuario);
             return ResponseEntity.ok("Usuário atualizado com sucesso");
         } else {

@@ -27,7 +27,6 @@ public class Usuario {
     @Schema(description = "Sobrenome utilizado pelo usuário")
     private String csobrenome;
 
-
     @NotNull
     @Size(min = 11, message = "Um CPF deve conter no mínimo 11 caracteres.")
     @Schema(description = "CPF ligado à conta do usuário.")
@@ -64,10 +63,6 @@ public class Usuario {
 
     @Schema(description = "Especialidade profissional do usuário")
     private String cespecialidadeprofissional;
-
-    @Column(name = "transaction_made")
-    @Schema(description = "Indica se uma transação foi feita")
-    private boolean transaction_made;
 
     @Column(name = "idplano")
     @Schema(description = "Atributo que relaciona a tabela de usuário com a tabela de plano")
@@ -184,13 +179,6 @@ public class Usuario {
         this.cespecialidadeprofissional = cespecialidadeprofissional;
     }
 
-    public boolean isTransaction_made() {
-        return transaction_made;
-    }
-
-    public void setTransaction_made(boolean transaction_made) {
-        this.transaction_made = transaction_made;
-    }
 
     public int getIdplano() {
         return idplano;
@@ -214,7 +202,6 @@ public class Usuario {
                 ", clinklinkedin='" + clinklinkedin + '\'' +
                 ", cidhash='" + cidhash + '\'' +
                 ", cespecialidadeprofissional='" + cespecialidadeprofissional + '\'' +
-                ", transaction_made=" + transaction_made +
                 '}';
     }
 }
