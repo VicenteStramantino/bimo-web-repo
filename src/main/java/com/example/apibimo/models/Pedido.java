@@ -41,22 +41,17 @@ public class Pedido {
     @NotNull(message = "O tipo de pagamento é obrigatório.")
     private String cTipoPagamento;
 
-    @Column(name = "transaction_made")
-    @Schema(description = "Indica se a transação foi realizada", example = "true")
-    private boolean transaction_made;
 
     @Column(name = "idusuario")
     @Schema(description = "Atributo FK da tabela de usuario", example ="1")
     private int iIdUsuario;
 
-    // Construtor com parâmetros
-        public Pedido(double fValorTotal, String dData, String cStatus, String cTipoPagamento, int idusuario ,boolean transaction_made) {
+        public Pedido(double fValorTotal, String dData, String cStatus, String cTipoPagamento, int idusuario) {
             this.fValorTotal = fValorTotal;
             this.dData = dData;
             this.cStatus = cStatus;
             this.cTipoPagamento = cTipoPagamento;
             this.iIdUsuario = idusuario;
-            this.transaction_made = transaction_made;
         }
 
     // Construtor padrão
@@ -105,10 +100,6 @@ public class Pedido {
         this.cTipoPagamento = cTipoPagamento;
     }
 
-    public boolean isTransaction_made() {
-        return transaction_made;
-    }
-
     public int getiIdUsuario() {
         return iIdUsuario;
     }
@@ -117,7 +108,4 @@ public class Pedido {
         this.iIdUsuario = iIdUsuario;
     }
 
-    public void setTransaction_made(boolean transaction_made) {
-        this.transaction_made = transaction_made;
-    }
 }

@@ -43,11 +43,7 @@ public class Endereco {
     @Schema(description = "Nome do estado associado ao endereço.", example = "São Paulo")
     private String cEstado;
 
-    @Column(name = "transaction_made")
-    @Schema(description = "Indicador booleano para auxiliar noe controle de transações no banco de dados.", example = "true")
-    private boolean transaction_made;
-
-    public Endereco(int sid, String cCep, String cBairro, int iNumero, String cRua, int idUsuario, String cEstado, boolean transaction_made) {
+    public Endereco(int sid, String cCep, String cBairro, int iNumero, String cRua, int idUsuario, String cEstado) {
         this.sid = sid;
         this.cCep = cCep;
         this.cBairro = cBairro;
@@ -55,7 +51,6 @@ public class Endereco {
         this.cRua = cRua;
         this.idUsuario = idUsuario;
         this.cEstado = cEstado;
-        this.transaction_made = transaction_made;
     }
 
     public Endereco(){
@@ -119,11 +114,4 @@ public class Endereco {
         this.cEstado = cEstado;
     }
 
-    public boolean isTransaction_made() {
-        return transaction_made;
-    }
-
-    public void setTransaction_made(boolean transaction_made) {
-        this.transaction_made = transaction_made;
-    }
 }

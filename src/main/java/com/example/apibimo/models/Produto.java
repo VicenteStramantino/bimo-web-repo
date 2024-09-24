@@ -61,14 +61,17 @@ public class Produto {
     @Size(min = 10, message = "Este campo deve conter no minimo 10 caractres")
     private String dDataCriacao;
 
-    @Column(name = "transaction_made")
-    @Schema(description = "Atributo que sera responsavel por ajudar na organização do banco")
-    private boolean transaction_made;
+
+    @Column(name = "cestado")
+    @NotNull
+    @Schema(description = "Atributo responsavel por guardar o estado do produto")
+    public String cEstado;
+
 
     public Produto() {
     }
 
-    public Produto(int sid, String cNome, double fvalor, String cDescricao, int idCategoria, int idUsuario ,String dDataCriacao) {
+    public Produto(int sid, String cNome, double fvalor, String cDescricao, int idCategoria, int idUsuario ,String dDataCriacao, String cEstado) {
         this.sid = sid;
         this.cNome = cNome;
         this.fvalor = fvalor;
@@ -76,6 +79,7 @@ public class Produto {
         this.idCategoria = idCategoria;
         this.idUsuario = idUsuario;
         this.dDataCriacao = dDataCriacao;
+        this.cEstado = cEstado;
     }
 
     public int getIdUsuario() {
@@ -100,6 +104,14 @@ public class Produto {
 
     public void setcNome(String cNome) {
         this.cNome = cNome;
+    }
+
+    public String getcEstado() {
+        return cEstado;
+    }
+
+    public void setcEstado(String cEstado) {
+        this.cEstado = cEstado;
     }
 
     public double getFvalor() {
@@ -134,14 +146,6 @@ public class Produto {
         this.dDataCriacao = dDataCriacao;
     }
 
-    public boolean isTransaction_made() {
-        return transaction_made;
-    }
-
-    public void setTransaction_made(boolean transaction_made) {
-        this.transaction_made = transaction_made;
-    }
-
     @Override
     public String toString() {
         return "Produto{" +
@@ -151,7 +155,7 @@ public class Produto {
                 ", cDescricao='" + cDescricao + '\'' +
                 ", idCategoria=" + idCategoria +
                 ", dDataCriacao='" + dDataCriacao + '\'' +
-                ", transaction_made=" + transaction_made +
+                ", cestado='" + cEstado + '\'' +
                 '}';
     }
 }

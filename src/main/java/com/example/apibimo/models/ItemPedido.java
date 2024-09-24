@@ -33,18 +33,14 @@ public class ItemPedido {
     @Schema(description = "Identificador do produto associado ao item")
     private int idProduto;
 
-    @Column(name = "transaction_made")
-    @Schema(description = "Indica se a transação foi realizada")
-    private boolean transaction_made;
 
 
-    public ItemPedido(int sid, int iQuantidade, double fValor, int idPedido, int idProduto, boolean transaction_made) {
+    public ItemPedido(int sid, int iQuantidade, double fValor, int idPedido, int idProduto) {
         this.sid = sid;
         this.iQuantidade = iQuantidade;
         this.fValor = fValor;
         this.idPedido = idPedido;
         this.idProduto = idProduto;
-        this.transaction_made = transaction_made;
     }
 
     public ItemPedido() {
@@ -91,11 +87,5 @@ public class ItemPedido {
         this.idProduto = idProduto;
     }
 
-    public boolean isTransactionMade() {
-        return transaction_made;
-    }
 
-    public void setTransactionMade(boolean transaction_made) {
-        this.transaction_made = transaction_made;
-    }
 }
