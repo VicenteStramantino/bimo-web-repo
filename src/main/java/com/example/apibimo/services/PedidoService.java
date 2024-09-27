@@ -53,7 +53,6 @@ public class PedidoService {
             pedido.setdData(pedidoAtualizado.getdData());
             pedido.setcStatus(pedidoAtualizado.getcStatus());
             pedido.setcTipoPagamento(pedidoAtualizado.getcTipoPagamento());
-            pedido.setTransaction_made(pedidoAtualizado.isTransaction_made());
             pedidoRepository.save(pedido);
             return ResponseEntity.ok("Pedido atualizado com sucesso");
         } else {

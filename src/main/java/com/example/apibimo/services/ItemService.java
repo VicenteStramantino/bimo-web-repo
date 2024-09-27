@@ -53,7 +53,6 @@ public class ItemService {
             itemPedido.setfValor(itemPedidoAtualizado.getfValor());
             itemPedido.setIdPedido(itemPedidoAtualizado.getIdPedido());
             itemPedido.setIdProduto(itemPedidoAtualizado.getIdProduto());
-            itemPedido.setTransactionMade(itemPedidoAtualizado.isTransactionMade());
             itemPedidoRepository.save(itemPedido);
             return ResponseEntity.ok("Item de pedido atualizado com sucesso");
         } else {

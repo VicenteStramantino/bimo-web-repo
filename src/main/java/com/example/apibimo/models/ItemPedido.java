@@ -47,14 +47,6 @@ public class ItemPedido {
 
     }
 
-    public int getSid() {
-        return sid;
-    }
-
-    public void setSid(int sid) {
-        this.sid = sid;
-    }
-
     public int getiQuantidade() {
         return iQuantidade;
     }
