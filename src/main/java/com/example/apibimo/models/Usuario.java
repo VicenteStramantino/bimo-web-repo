@@ -68,8 +68,16 @@ public class Usuario {
     @Schema(description = "Atributo que relaciona a tabela de usuário com a tabela de plano")
     private int idplano;
 
+    @Column(name = "cimgfirebase")
+    @Schema(description = "Atributo por guardar a url da imaem do firebase")
+    private String imgFirebase;
+
+    @Column(name = "cusername")
+    @Schema(description = "Atributo que guarda o username do usuario")
+    private String username;
+
     // Construtor com todos os atributos
-    public Usuario(String cnome, String csobrenome, String ccpf, String cemail, String ccnpj, String ctelefone, String ddatanascimento, String clinklinkedin, String cidhash, String cespecialidadeprofissional, int idplano) {
+    public Usuario(String cnome, String csobrenome, String ccpf, String cemail, String ccnpj, String ctelefone, String ddatanascimento, String clinklinkedin, String cidhash, String cespecialidadeprofissional, int idplano, String username, String imgfirebase) {
         this.cnome = cnome;
         this.csobrenome = csobrenome;
         this.ccpf = ccpf;
@@ -81,7 +89,8 @@ public class Usuario {
         this.cidhash = cidhash;
         this.cespecialidadeprofissional = cespecialidadeprofissional;
         this.idplano = idplano;
-
+        this.username = username;
+        this.imgFirebase = imgfirebase;
     }
 
     // Construtor vazio
@@ -180,6 +189,22 @@ public class Usuario {
         this.idplano = idplano;
     }
 
+    public String getImgFirebase() {
+        return imgFirebase;
+    }
+
+    public void setImgFirebase(String imgFirebase) {
+        this.imgFirebase = imgFirebase;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public String toString() {
         return "{" +
@@ -194,6 +219,9 @@ public class Usuario {
                 ", clinklinkedin='" + clinklinkedin + '\'' +
                 ", cidhash='" + cidhash + '\'' +
                 ", cespecialidadeprofissional='" + cespecialidadeprofissional + '\'' +
+                ", idplano='" + idplano + '\'' +
+                ", cimgfirebase='" + imgFirebase + '\'' +
+                ", cusername='" + username + '\'' +
                 '}';
     }
 }
