@@ -55,7 +55,7 @@ public class UsuarioController {
     }
 
 
-    @GetMapping("/selecionarPorHash/{id}")
+    @GetMapping("/selecionarPorHash/{hash}")
     @Schema(description = "Busca usuario por hash, para facilitar funcionamento do mobile")
     public Usuario buscarUsuarioPorHash(@PathVariable String hash){
         return usuarioService.findUsuarioByCidhash(hash);
