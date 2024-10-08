@@ -66,11 +66,15 @@ public class Produto {
     @Schema(description = "Atributo responsavel por guardar o estado do produto")
     public String cEstado;
 
+    @Column(name = "cimgfirebase")
+    @NotNull
+    @Schema(description = "Atributo responsavel por guardar o link da imagem do firebase")
+    public String cimgfirebase;
 
     public Produto() {
     }
 
-    public Produto(int sid, String cNome, double fvalor, String cDescricao,String idCategoria, int idUsuario ,String dDataCriacao, String cEstado) {
+    public Produto(int sid, String cNome, double fvalor, String cDescricao,String idCategoria, int idUsuario ,String dDataCriacao, String cEstado, String cimgfirebase) {
         this.sid = sid;
         this.cNome = cNome;
         this.fvalor = fvalor;
@@ -79,6 +83,16 @@ public class Produto {
         this.idUsuario = idUsuario;
         this.dDataCriacao = dDataCriacao;
         this.cEstado = cEstado;
+        this.cimgfirebase = cimgfirebase;
+    }
+
+
+    public String getCimgfirebase() {
+        return cimgfirebase;
+    }
+
+    public void setCimgfirebase(String cimgfirebase) {
+        this.cimgfirebase = cimgfirebase;
     }
 
     public int getIdUsuario() {
@@ -145,6 +159,8 @@ public class Produto {
         this.dDataCriacao = dDataCriacao;
     }
 
+
+
     @Override
     public String toString() {
         return "Produto{" +
@@ -155,6 +171,7 @@ public class Produto {
                 ", idCategoria=" + idCategoria +
                 ", dDataCriacao='" + dDataCriacao + '\'' +
                 ", cestado='" + cEstado + '\'' +
+                ", cimgfirebase='" + cimgfirebase + '\'' +
                 '}';
     }
 }
