@@ -46,7 +46,7 @@ public class Produto {
     @Column(name = "idcategoria")
     @NotNull
     @Schema(description = "Atribuo responsavel por fazer a ligação com a tabela de categoria")
-    private int idCategoria;
+    private String idCategoria;
 
 
     @Column(name = "idusuario")
@@ -56,7 +56,6 @@ public class Produto {
 
 
     @Column(name = "ddatacriacao")
-    @NotNull
     @Schema(description = "Atribuo responsavel por guardar a data de criação do produto")
     @Size(min = 10, message = "Este campo deve conter no minimo 10 caractres")
     private String dDataCriacao;
@@ -71,7 +70,7 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(int sid, String cNome, double fvalor, String cDescricao, int idCategoria, int idUsuario ,String dDataCriacao, String cEstado) {
+    public Produto(int sid, String cNome, double fvalor, String cDescricao,String idCategoria, int idUsuario ,String dDataCriacao, String cEstado) {
         this.sid = sid;
         this.cNome = cNome;
         this.fvalor = fvalor;
@@ -130,11 +129,11 @@ public class Produto {
         this.cDescricao = cDescricao;
     }
 
-    public int getIdCategoria() {
+    public String getIdCategoria() {
         return idCategoria;
     }
 
-    public void setIdCategoria(int idCategoria) {
+    public void setIdCategoria(String idCategoria) {
         this.idCategoria = idCategoria;
     }
 

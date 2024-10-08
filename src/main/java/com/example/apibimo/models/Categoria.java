@@ -10,7 +10,7 @@ import jakarta.persistence.*;
 public class Categoria{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int sid;
+    private String sid;
 
     @Column(name = "cnome")
     @Schema(description = "Atributo que guarda o nome da categoria")
@@ -21,7 +21,7 @@ public class Categoria{
     @Schema(description = "Mostra o tipo da categoria, util para organização")
     private String cTipo;
 
-    public Categoria(int sid, String cNome, String cTipo) {
+    public Categoria(String sid, String cNome, String cTipo) {
         this.sid = sid;
         this.cNome = cNome;
         this.cTipo = cTipo;

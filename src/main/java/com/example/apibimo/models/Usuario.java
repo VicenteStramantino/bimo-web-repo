@@ -104,6 +104,9 @@ public class Usuario {
         return sid;
     }
 
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
 
     public String getCnome() {
         return cnome;
