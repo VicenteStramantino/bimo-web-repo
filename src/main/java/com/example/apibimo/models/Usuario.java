@@ -100,6 +100,9 @@ public class Usuario {
     public Usuario() {
     }
 
+    public int getSid() {
+        return sid;
+    }
 
 
     public String getCnome() {
