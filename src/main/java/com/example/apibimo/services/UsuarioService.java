@@ -20,6 +20,10 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
+    public Usuario findUsuarioByCidhash(String cidhash) {
+        return usuarioRepository.findByCidhash(cidhash);
+    }
+
     // Método para buscar todos os usuários
     public List<Usuario> buscarTodosUsuarios() {
         return usuarioRepository.findAll();

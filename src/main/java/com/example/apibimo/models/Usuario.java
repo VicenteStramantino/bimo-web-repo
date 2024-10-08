@@ -9,6 +9,9 @@ import org.hibernate.validator.constraints.br.CNPJ;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.cglib.core.Local;
 
+import java.util.Date;
+
+
 @Entity
 @Table(name = "usuario")
 @Schema(description = "Representa um usuário no sistema")
@@ -149,7 +152,7 @@ public class Usuario {
     }
 
     public String getDdatanascimento() {
-        return String.valueOf(this.ddatanascimento);
+        return this.ddatanascimento;
     }
 
     public void setDdatanascimento(String ddatanascimento) {

@@ -41,6 +41,9 @@ public class PlanoController {
         return planoService.buscarTodosPlanos();
     }
 
+
+
+
     @GetMapping("/selecionarPorID/{id}")
     @Operation(summary = "Obtém um plano por ID", description = "Este endpoint retorna o plano correspondente ao ID fornecido.")
     @ApiResponses(value = {

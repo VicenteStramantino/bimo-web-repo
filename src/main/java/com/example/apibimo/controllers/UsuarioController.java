@@ -54,6 +54,13 @@ public class UsuarioController {
         return usuarioService.buscarUsuarioPorID(id);
     }
 
+
+    @GetMapping("/selecionarPorHash/{id}")
+    @Schema(description = "Busca usuario por hash, para facilitar funcionamento do mobile")
+    public Usuario buscarUsuarioPorHash(@PathVariable String hash){
+        return usuarioService.findUsuarioByCidhash(hash);
+    }
+
     @PostMapping("/inserir")
     @Operation(summary = "Insere novo usuário")
     @ApiResponses(value = {
