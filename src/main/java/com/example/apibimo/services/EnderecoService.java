@@ -46,7 +46,7 @@ public class EnderecoService {
 
     // Método para atualizar um endereço
     public ResponseEntity<String> atualizarEndereco(@PathVariable Integer id, @RequestBody Endereco enderecoAtualizado) {
-        Optional<Endereco> enderecoExistente = enderecoRepository.findById(id);
+        Optional<Endereco> enderecoExistente = enderecoRepository.findByIdUsuario(id);
         if (enderecoExistente.isPresent()) {
             Endereco endereco = enderecoExistente.get();
             endereco.setcCep(enderecoAtualizado.getcCep());
