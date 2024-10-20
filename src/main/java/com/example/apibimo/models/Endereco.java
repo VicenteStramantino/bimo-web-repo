@@ -52,6 +52,15 @@ public class Endereco {
         this.idUsuario = idUsuario;
         this.cEstado = cEstado;
     }
+    public Endereco( String cCep, String cBairro, int iNumero, String cRua, int idUsuario, String cEstado) {
+        this.cCep = cCep;
+        this.cBairro = cBairro;
+        this.iNumero = iNumero;
+        this.cRua = cRua;
+        this.idUsuario = idUsuario;
+        this.cEstado = cEstado;
+    }
+
 
     public Endereco(){
 
