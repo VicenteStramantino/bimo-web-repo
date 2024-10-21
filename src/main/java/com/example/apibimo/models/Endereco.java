@@ -17,7 +17,7 @@ public class Endereco {
 
     @Column(name = "ccep")
     @Schema(description = "CEP do usuário, que deve ter exatamente 10 caracteres.", example = "12345-6789")
-    @Size(min = 10, max = 10, message = "O CEP deve conter 10 caracteres.")
+    @Size(min = 9, max = 10, message = "O CEP deve conter 10 caracteres.")
     private String cCep;
 
     @Column(name = "cbairro")
@@ -123,4 +123,16 @@ public class Endereco {
         this.cEstado = cEstado;
     }
 
+    @Override
+    public String toString() {
+        return "Endereco{" +
+                "sid=" + sid +
+                ", cCep='" + cCep + '\'' +
+                ", cBairro='" + cBairro + '\'' +
+                ", iNumero=" + iNumero +
+                ", cRua='" + cRua + '\'' +
+                ", idUsuario=" + idUsuario +
+                ", cEstado='" + cEstado + '\'' +
+                '}';
+    }
 }

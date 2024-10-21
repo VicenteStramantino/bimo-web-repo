@@ -48,6 +48,7 @@ public class EnderecoService {
     public ResponseEntity<String> atualizarEndereco(@PathVariable Integer id, @RequestBody Endereco enderecoAtualizado) {
         Optional<Endereco> enderecoExistente = enderecoRepository.findByIdUsuario(id);
         if (enderecoExistente.isPresent()) {
+            System.out.println(enderecoAtualizado);
             Endereco endereco = enderecoExistente.get();
             endereco.setcCep(enderecoAtualizado.getcCep());
             endereco.setcBairro(enderecoAtualizado.getcBairro());
