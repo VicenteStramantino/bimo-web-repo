@@ -11,4 +11,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
     Usuario findByCidhash(String cidhash);
 
+    Usuario findByCtelefone(String cTelefone);
+
 }

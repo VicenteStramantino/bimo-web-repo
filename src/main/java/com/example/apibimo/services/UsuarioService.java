@@ -24,6 +24,10 @@ public class UsuarioService {
         return usuarioRepository.findByCidhash(cidhash);
     }
 
+    public Usuario findUsuarioByTelefone(String ctelefone){
+        return usuarioRepository.findByCtelefone(ctelefone);
+    }
+
     // Método para buscar todos os usuários
     public List<Usuario> buscarTodosUsuarios() {
         return usuarioRepository.findAll();

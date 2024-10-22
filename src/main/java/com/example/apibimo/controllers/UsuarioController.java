@@ -55,8 +55,27 @@ public class UsuarioController {
     }
 
 
+    @GetMapping("/selecionarPorTelefone/{telefone}")
+    @Schema(description = "Busca usuario por telefone, para facilitar funcionamento do mobile")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Usuário retornado com sucesso",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Usuario.class))),
+            @ApiResponse(responseCode = "500", description = "Erro interno do servidor", content = @Content)
+    })
+    public Usuario buscarPorTelefone(@PathVariable String telefone){
+        return usuarioService.findUsuarioByTelefone(telefone);
+    }
+
+
     @GetMapping("/selecionarPorHash/{hash}")
     @Schema(description = "Busca usuario por hash, para facilitar funcionamento do mobile")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Usuário retornado com sucesso",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Usuario.class))),
+            @ApiResponse(responseCode = "500", description = "Erro interno do servidor", content = @Content)
+    })
     public Usuario buscarUsuarioPorHash(@PathVariable String hash){
         return usuarioService.findUsuarioByCidhash(hash);
     }
