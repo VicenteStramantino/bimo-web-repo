@@ -57,53 +57,5 @@ public class CursoController {
         return cursoService.buscarCursoPorID(id);
     }
 
-    @PostMapping("/inserir")
-    @Operation(summary = "Insere um novo curso",
-            description = "Este endpoint insere um novo curso com as informações fornecidas no corpo da requisição.")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Curso inserido com sucesso.",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Curso.class))),
-            @ApiResponse(responseCode = "400", description = "Erro de validação dos dados fornecidos.", content = @Content),
-            @ApiResponse(responseCode = "500", description = "Erro interno do servidor.", content = @Content)
-    })
-    public ResponseEntity<?> inserirCurso(@Valid @RequestBody Curso curso, BindingResult erros) {
-        if (erros.hasErrors()) {
-            Map<String, String> errosTotais = new HashMap<>();
-            for (FieldError erro : erros.getFieldErrors()) {
-                errosTotais.put(erro.getField(), erro.getDefaultMessage());
-            }
-            return new ResponseEntity<>(errosTotais, HttpStatus.BAD_REQUEST);
-        }
-        cursoService.inserirCurso(curso);
-        return new ResponseEntity<>("Curso inserido com sucesso.", HttpStatus.OK);
-    }
-
-    @DeleteMapping("/deletar/{ids}")
-    @Operation(summary = "Exclui cursos",
-            description = "Este endpoint exclui os cursos correspondentes aos IDs fornecidos.")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Cursos excluídos com sucesso.",
-                    content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Erro interno do servidor.", content = @Content)
-    })
-    public ResponseEntity<String> excluirCurso(@PathVariable("ids") int[] ids) {
-        return cursoService.deletarCursos(ids);
-    }
-
-    @PutMapping("/atualizar/{id}")
-    @Operation(summary = "Atualiza um curso existente",
-            description = "Este endpoint atualiza as informações do curso com o ID fornecido.")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Curso atualizado com sucesso.",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Curso.class))),
-            @ApiResponse(responseCode = "400", description = "Erro de validação dos dados fornecidos.", content = @Content),
-            @ApiResponse(responseCode = "404", description = "Curso não encontrado com o ID fornecido.", content = @Content),
-            @ApiResponse(responseCode = "500", description = "Erro interno do servidor.", content = @Content)
-    })
-    public ResponseEntity<String> atualizarCurso(@PathVariable int id, @Valid @RequestBody Curso cursoAtualizado, BindingResult resultado) {
-        return cursoService.atualizarCurso(id, cursoAtualizado);
-    }
 
 }

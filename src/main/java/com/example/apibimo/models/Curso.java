@@ -49,11 +49,11 @@ public class Curso {
     @NotNull
     private String cDuracao;
 
-    @Column(name = "transaction_made")
-    @Schema(description = "Indica se a transação foi realizada.", example = "true")
-    private boolean transaction_made;
 
-    public Curso(int sid, double fValor, String cDescricao, String cCertificacao, int iCategoria, int iNumeroInscricao, String cNome, String cDuracao, boolean transaction_made) {
+    @Schema(description = "URL da foto do curso")
+    private String curlfoto;
+
+    public Curso(int sid, double fValor, String cDescricao, String cCertificacao, int iCategoria, int iNumeroInscricao, String cNome, String cDuracao, String curlfoto) {
         this.sid = sid;
         this.fValor = fValor;
         this.cDescricao = cDescricao;
@@ -61,8 +61,9 @@ public class Curso {
         this.iNumeroInscricao = iNumeroInscricao;
         this.cNome = cNome;
         this.cDuracao = cDuracao;
-        this.transaction_made = transaction_made;
         this.iCategoria = iCategoria;
+        this.curlfoto = curlfoto;
+
     }
 
     public Curso() {
@@ -132,8 +133,19 @@ public class Curso {
         this.cDuracao = cDuracao;
     }
 
+    public int getiCategoria() {
+        return iCategoria;
+    }
 
-    public void setTransaction_made(boolean transaction_made) {
-        this.transaction_made = transaction_made;
+    public void setiCategoria(int iCategoria) {
+        this.iCategoria = iCategoria;
+    }
+
+    public String getCurlfoto() {
+        return curlfoto;
+    }
+
+    public void setCurlfoto(String curlfoto) {
+        this.curlfoto = curlfoto;
     }
 }
