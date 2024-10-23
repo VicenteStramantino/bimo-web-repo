@@ -32,7 +32,7 @@ public class Curso {
     @Column(name = "idcategoria")
     @Schema(description = "Categoria do curso. Exemplo: 1 para Tecnologia, 2 para Negócios.", example = "1")
     @NotNull
-    private int iCategoria;
+    private String iCategoria;
 
     @Column(name = "inumeroinscricao")
     @Schema(description = "Número de pessoas inscritas no curso.", example = "50")
@@ -53,7 +53,7 @@ public class Curso {
     @Schema(description = "URL da foto do curso")
     private String curlfoto;
 
-    public Curso(int sid, double fValor, String cDescricao, String cCertificacao, int iCategoria, int iNumeroInscricao, String cNome, String cDuracao, String curlfoto) {
+    public Curso(int sid, double fValor, String cDescricao, String cCertificacao, String iCategoria, int iNumeroInscricao, String cNome, String cDuracao, String curlfoto) {
         this.sid = sid;
         this.fValor = fValor;
         this.cDescricao = cDescricao;
@@ -101,11 +101,11 @@ public class Curso {
         this.cCertificacao = cCertificacao;
     }
 
-    public int getcCategoria() {
+    public String getcCategoria() {
         return iCategoria;
     }
 
-    public void setcCategoria(int cCategoria) {
+    public void setcCategoria(String cCategoria) {
         this.iCategoria = cCategoria;
     }
 
@@ -133,11 +133,11 @@ public class Curso {
         this.cDuracao = cDuracao;
     }
 
-    public int getiCategoria() {
+    public String getiCategoria() {
         return iCategoria;
     }
 
-    public void setiCategoria(int iCategoria) {
+    public void setiCategoria(String iCategoria) {
         this.iCategoria = iCategoria;
     }
 
