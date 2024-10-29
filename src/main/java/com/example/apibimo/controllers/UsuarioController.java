@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -123,7 +124,7 @@ public class UsuarioController {
                             schema = @Schema(implementation = Usuario.class))),
             @ApiResponse(responseCode = "500", description = "Erro interno do servidor", content = @Content)
     })
-    public ResponseEntity<String> atualizarUsuario(@PathVariable int id, @Valid @RequestBody Usuario usuarioAtualizado, BindingResult resultado) {
+    public ResponseEntity<String> atualizarUsuario(@PathVariable int id, @Validated @RequestBody Usuario usuarioAtualizado, BindingResult resultado) {
         return usuarioService.atualizarUsuario(id, usuarioAtualizado);
     }
 }

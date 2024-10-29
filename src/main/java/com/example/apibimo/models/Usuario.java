@@ -75,12 +75,14 @@ public class Usuario {
     @Schema(description = "Atributo por guardar a url da imaem do firebase")
     private String imgFirebase;
 
+
+    @NotNull
     @Column(name = "cusername")
     @Schema(description = "Atributo que guarda o username do usuario")
-    private String username;
+    private String cusername;
 
     // Construtor com todos os atributos
-    public Usuario(String cnome, String csobrenome, String ccpf, String cemail, String ccnpj, String ctelefone, String ddatanascimento, String clinklinkedin, String cidhash, String cespecialidadeprofissional, int idplano, String username, String imgfirebase) {
+    public Usuario(String cnome, String csobrenome, String ccpf, String cemail, String ccnpj, String ctelefone, String ddatanascimento, String clinklinkedin, String cidhash, String cespecialidadeprofissional, int idplano, String imgfirebase, String cusername) {
         this.cnome = cnome;
         this.csobrenome = csobrenome;
         this.ccpf = ccpf;
@@ -92,8 +94,8 @@ public class Usuario {
         this.cidhash = cidhash;
         this.cespecialidadeprofissional = cespecialidadeprofissional;
         this.idplano = idplano;
-        this.username = username;
         this.imgFirebase = imgfirebase;
+        this.cusername = cusername;
     }
 
     // Construtor vazio
@@ -206,31 +208,31 @@ public class Usuario {
         this.imgFirebase = imgFirebase;
     }
 
-    public String getUsername() {
-        return username;
+    public String getCusername() {
+        return cusername;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setCusername(String cusername) {
+        this.cusername = cusername;
     }
 
     @Override
     public String toString() {
-        return "{" +
-                "sid=" + sid +
-                ", cnome='" + cnome + '\'' +
-                ", csobrenome='" + csobrenome + '\'' +
-                ", ccpf='" + ccpf + '\'' +
-                ", cemail='" + cemail + '\'' +
-                ", ccnpj='" + ccnpj + '\'' +
-                ", ctelefone='" + ctelefone + '\'' +
-                ", ddatanascimento=" + ddatanascimento +
-                ", clinklinkedin='" + clinklinkedin + '\'' +
-                ", cidhash='" + cidhash + '\'' +
-                ", cespecialidadeprofissional='" + cespecialidadeprofissional + '\'' +
-                ", idplano='" + idplano + '\'' +
-                ", cimgfirebase='" + imgFirebase + '\'' +
-                ", cusername='" + username + '\'' +
-                '}';
+            return "{" +
+                    "sid=" + sid +
+                    ", cnome='" + cnome + '\'' +
+                    ", csobrenome='" + csobrenome + '\'' +
+                    ", ccpf='" + ccpf + '\'' +
+                    ", cemail='" + cemail + '\'' +
+                    ", ccnpj='" + ccnpj + '\'' +
+                    ", ctelefone='" + ctelefone + '\'' +
+                    ", ddatanascimento=" + ddatanascimento +
+                    ", clinklinkedin='" + clinklinkedin + '\'' +
+                    ", cidhash='" + cidhash + '\'' +
+                    ", cespecialidadeprofissional='" + cespecialidadeprofissional + '\'' +
+                    ", idplano='" + idplano + '\'' +
+                    ", cimgfirebase='" + imgFirebase + '\'' +
+                    ", cusername='" + cusername + '\'' +
+                    '}';
     }
 }
