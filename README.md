@@ -14,7 +14,7 @@
     <ul>
         <li>📦 <strong>Venda de Produtos Usados:</strong> Empresas podem anunciar e vender produtos usados para outras empresas.</li>
         <li>📰 <strong>Feed de Anúncios:</strong> Um feed interativo para visualizar os produtos e cursos oferecidos.</li>
-        <li>🎓 <strong>Venda de Cursos:</strong> Usuários podem anunciar e vender cursos voltados para o público empreendedor.</li>
+        <li>🎓 <strong>Acesso a cursos:</strong> Usuários podem ter acesso a cursos voltados para o público empreendedor.</li>
     </ul>
     <h2>Tecnologias Utilizadas</h2>
     <ul>
