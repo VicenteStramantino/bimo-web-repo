@@ -39,6 +39,10 @@ public class UsuarioService {
                 new RuntimeException("Usuário não encontrado"));
     }
 
+    public Usuario buscarUsuarioPorEmail(String email){
+        return usuarioRepository.findUsuarioByCemail(email);
+    }
+
     // Método para inserir novo usuário
     public ResponseEntity<String> inserirUsuario(@RequestBody Usuario usuario) {
         usuarioRepository.save(usuario);
