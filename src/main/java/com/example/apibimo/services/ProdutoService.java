@@ -49,6 +49,8 @@ public class ProdutoService {
             produto.setcNome(produtoAtualizado.getcNome());
             produto.setcDescricao(produtoAtualizado.getcDescricao());
             produto.setFvalor(produtoAtualizado.getFvalor());
+            produto.setIdCategoria(produtoAtualizado.getIdCategoria());
+            produto.setcEstado(produtoAtualizado.cEstado);
             produto.setCimgfirebase(produtoAtualizado.getCimgfirebase());
             produtoRepository.save(produto);
             return ResponseEntity.ok("Produto atualizado com sucesso");

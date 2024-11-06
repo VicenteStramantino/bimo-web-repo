@@ -64,6 +64,7 @@ public class UsuarioService {
             usuario.setCemail(usuarioAtualizado.getCemail());
             usuario.setCcnpj(usuarioAtualizado.getCcnpj());
             usuario.setCtelefone(usuarioAtualizado.getCtelefone());
+            usuario.setIdplano(usuarioAtualizado.getIdplano());
             usuario.setDdatanascimento(usuarioAtualizado.getDdatanascimento());
             usuario.setClinklinkedin(usuarioAtualizado.getClinklinkedin());
             usuario.setCidhash(usuarioAtualizado.getCidhash());
