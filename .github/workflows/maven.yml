@@ -2,9 +2,9 @@ name: Deploy render
  
 on:
   push:
-    branches: [ "DEV" ]
+    branches: [ "PROD" ]
   pull_request:
-    branches: [ "DEV" ]
+    branches: [ "PROD" ]
  
   workflow_dispatch:
  
