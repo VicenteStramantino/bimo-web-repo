@@ -81,6 +81,20 @@ public class UsuarioController {
         return usuarioService.findUsuarioByCidhash(hash);
     }
 
+
+    @GetMapping("/selecionarPorEmail/{cemail}")
+    @Schema(description = "Busca usuario por hash, para facilitar funcionamento do mobile")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Usuário retornado com sucesso",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Usuario.class))),
+            @ApiResponse(responseCode = "500", description = "Erro interno do servidor", content = @Content)
+    })
+    public Usuario buscarPorEmail(@PathVariable String cemail){
+        return usuarioService.buscarUsuarioPorEmail(cemail);
+    }
+
+
     @PostMapping("/inserir")
     @Operation(summary = "Insere novo usuário")
     @ApiResponses(value = {

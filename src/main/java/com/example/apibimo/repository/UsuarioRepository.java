@@ -13,4 +13,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
     Usuario findByCtelefone(String cTelefone);
 
+    Usuario findUsuarioByCemail(String cemail);
+
 }
